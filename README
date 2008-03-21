@@ -6,20 +6,19 @@ building recursively all directories, getting HTML, images, and other
 files from the server to your computer.
 
 Runtime requirements:
-  cygwin-1.5.24-2
-  openssl-0.9.8e-3
+  cygwin-1.5.25-7
+  openssl-0.9.8g-1
   zlib-1.2.3-2
 (webhttrack)
   konqueror
 
 Build requirements:
 (besides corresponding -devel packages)
-  cygwin-1.5.24-2
   autoconf2.5-2.61-1
   automake1.7-1.7.9-3
   binutils-20060817-1
-  cygport-0.3.7-1
-  gawk-3.1.5-4
+  cygport-0.3.8-1
+  gawk-3.1.6-1
   gcc-core-3.4.4-3
   libtool1.5-1.5.23a-2
   make-3.81-1
@@ -35,17 +34,17 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack httrack-3.42.1-X-src.tar.bz2
+  unpack httrack-3.42.2-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./httrack-3.42.1-X.cygport all
+  cygport ./httrack-3.42.2-X.cygport all
 
 This will create:
-  /usr/src/httrack-3.42.1-X-src.tar.bz2
-  /usr/src/httrack-3.42.1-X.tar.bz2
-  /usr/src/libhttrack-devel-3.42.1-X.tar.bz2
-  /usr/src/libhttrack2-3.42.1-X.tar.bz2
+  /usr/src/httrack-3.42.2-X-src.tar.bz2
+  /usr/src/httrack-3.42.2-X.tar.bz2
+  /usr/src/libhttrack-devel-3.42.2-X.tar.bz2
+  /usr/src/libhttrack2-3.42.2-X.tar.bz2
 
 -------------------------------------------
 
@@ -58,16 +57,16 @@ Files included in the binary packages:
   /usr/bin/webhttrack
   /usr/share/applications/WebHTTrack-Websites.desktop
   /usr/share/applications/WebHTTrack.desktop
-  /usr/share/doc/Cygwin/httrack-3.42.1.README
-  /usr/share/doc/httrack-3.42.1/AUTHORS
-  /usr/share/doc/httrack-3.42.1/COPYING
-  /usr/share/doc/httrack-3.42.1/GPL.txt
-  /usr/share/doc/httrack-3.42.1/INSTALL
-  /usr/share/doc/httrack-3.42.1/LICENSE.txt
-  /usr/share/doc/httrack-3.42.1/README
-  /usr/share/doc/httrack-3.42.1/history.txt
-  /usr/share/doc/httrack-3.42.1/html  ->  ../../httrack/html
-  /usr/share/doc/httrack-3.42.1/httrack-doc.html
+  /usr/share/doc/Cygwin/httrack-3.42.2.README
+  /usr/share/doc/httrack-3.42.2/AUTHORS
+  /usr/share/doc/httrack-3.42.2/COPYING
+  /usr/share/doc/httrack-3.42.2/GPL.txt
+  /usr/share/doc/httrack-3.42.2/INSTALL
+  /usr/share/doc/httrack-3.42.2/LICENSE.txt
+  /usr/share/doc/httrack-3.42.2/README
+  /usr/share/doc/httrack-3.42.2/history.txt
+  /usr/share/doc/httrack-3.42.2/html  ->  ../../httrack/html
+  /usr/share/doc/httrack-3.42.2/httrack-doc.html
   /usr/share/httrack/html/abuse.html
   /usr/share/httrack/html/addurl.html
   /usr/share/httrack/html/cache.html
@@ -278,6 +277,9 @@ Files included in the binary packages:
 ------------------
 
 Port Notes:
+
+----- version 3.42.2-1 -----
+Version bump.
 
 ----- version 3.42.1-1 -----
 Long-overdue version bump.

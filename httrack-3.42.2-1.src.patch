@@ -1,0 +1,161 @@
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/httrack-3.42.2/Makefile.am src/httrack-3.42.2/Makefile.am
+--- origsrc/httrack-3.42.2/Makefile.am	2005-09-24 03:16:09.000000000 -0500
++++ src/httrack-3.42.2/Makefile.am	2008-03-20 17:22:18.968750000 -0500
+@@ -1,3 +1,4 @@
++ACLOCAL_AMFLAGS = -I m4
+ 
+ SUBDIRS = src man m4 libtest templates lang html
+ 
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/httrack-3.42.2/libtest/Makefile.am src/httrack-3.42.2/libtest/Makefile.am
+--- origsrc/httrack-3.42.2/libtest/Makefile.am	2008-03-19 14:07:22.000000000 -0500
++++ src/httrack-3.42.2/libtest/Makefile.am	2008-03-20 17:22:18.984375000 -0500
+@@ -18,33 +18,33 @@
+ 
+ # Examples
+ libbaselinks_la_SOURCES =  callbacks-example-baselinks.c
+-libbaselinks_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) -lhttrack
+-libbaselinks_la_LDFLAGS = -version-info 1:0:0
++libbaselinks_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) $(top_builddir)/src/libhttrack.la
++libbaselinks_la_LDFLAGS = -module -avoid-version -no-undefined
+ libchangecontent_la_SOURCES =  callbacks-example-changecontent.c
+-libchangecontent_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) -lhttrack
+-libchangecontent_la_LDFLAGS = -version-info 1:0:0
++libchangecontent_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) $(top_builddir)/src/libhttrack.la
++libchangecontent_la_LDFLAGS = -module -avoid-version -no-undefined
+ libcontentfilter_la_SOURCES =  callbacks-example-contentfilter.c
+-libcontentfilter_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) -lhttrack
+-libcontentfilter_la_LDFLAGS = -version-info 1:0:0
++libcontentfilter_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) $(top_builddir)/src/libhttrack.la
++libcontentfilter_la_LDFLAGS = -module -avoid-version -no-undefined
+ libdisplayheader_la_SOURCES =  callbacks-example-displayheader.c
+-libdisplayheader_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) -lhttrack
+-libdisplayheader_la_LDFLAGS = -version-info 1:0:0
++libdisplayheader_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) $(top_builddir)/src/libhttrack.la
++libdisplayheader_la_LDFLAGS = -module -avoid-version -no-undefined
+ libfilename2_la_SOURCES =  callbacks-example-filename2.c
+-libfilename2_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) -lhttrack
+-libfilename2_la_LDFLAGS = -version-info 1:0:0
++libfilename2_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) $(top_builddir)/src/libhttrack.la
++libfilename2_la_LDFLAGS = -module -avoid-version -no-undefined
+ libfilename_la_SOURCES =  callbacks-example-filename.c
+-libfilename_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) -lhttrack
+-libfilename_la_LDFLAGS = -version-info 1:0:0
++libfilename_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) $(top_builddir)/src/libhttrack.la
++libfilename_la_LDFLAGS = -module -avoid-version -no-undefined
+ libfilenameiisbug_la_SOURCES =  callbacks-example-filenameiisbug.c
+-libfilenameiisbug_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) -lhttrack
+-libfilenameiisbug_la_LDFLAGS = -version-info 1:0:0
++libfilenameiisbug_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) $(top_builddir)/src/libhttrack.la
++libfilenameiisbug_la_LDFLAGS = -module -avoid-version -no-undefined
+ liblistlinks_la_SOURCES =  callbacks-example-listlinks.c
+-liblistlinks_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) -lhttrack
+-liblistlinks_la_LDFLAGS = -version-info 1:0:0
++liblistlinks_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) $(top_builddir)/src/libhttrack.la
++liblistlinks_la_LDFLAGS = -module -avoid-version -no-undefined
+ liblog_la_SOURCES =  callbacks-example-log.c
+-liblog_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) -lhttrack
+-liblog_la_LDFLAGS = -version-info 1:0:0
++liblog_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) $(top_builddir)/src/libhttrack.la
++liblog_la_LDFLAGS = -module -avoid-version -no-undefined
+ libsimple_la_SOURCES =  callbacks-example-simple.c
+-libsimple_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) -lhttrack
+-libsimple_la_LDFLAGS = -version-info 1:0:0
++libsimple_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) $(top_builddir)/src/libhttrack.la
++libsimple_la_LDFLAGS = -module -avoid-version -no-undefined
+ pkglib_LTLIBRARIES = libbaselinks.la libchangecontent.la libcontentfilter.la libdisplayheader.la libfilename2.la libfilename.la libfilenameiisbug.la liblistlinks.la liblog.la libsimple.la
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/httrack-3.42.2/src/Makefile.am src/httrack-3.42.2/src/Makefile.am
+--- origsrc/httrack-3.42.2/src/Makefile.am	2006-08-14 04:21:51.000000000 -0500
++++ src/httrack-3.42.2/src/Makefile.am	2008-03-20 17:22:18.984375000 -0500
+@@ -25,8 +25,8 @@
+ 
+ bin_PROGRAMS = proxytrack httrack htsserver
+ 
+-httrack_LDADD = $(THREADS_LIBS) -lhttrack
+-htsserver_LDADD = $(THREADS_LIBS) $(SOCKET_LIBS) -lhttrack
++httrack_LDADD = $(THREADS_LIBS) libhttrack.la
++htsserver_LDADD = $(THREADS_LIBS) $(SOCKET_LIBS) libhttrack.la
+ proxytrack_LDADD = $(THREADS_LIBS) $(SOCKET_LIBS)
+ proxytrack_CFLAGS = $(AM_CFLAGS) -DNO_MALLOCT
+ 
+@@ -66,11 +66,11 @@
+ 	minizip/crypt.h minizip/ioapi.h minizip/mztools.h minizip/unzip.h minizip/zip.h \
+ 	mmsrip/error.h mmsrip/mms.h
+ libhttrack_la_LIBADD = $(THREADS_LIBS) $(ZLIB_LIBS) $(DL_LIBS) $(SOCKET_LIBS)
+-libhttrack_la_LDFLAGS = -version-info $(VERSION_INFO)
++libhttrack_la_LDFLAGS = -version-info $(VERSION_INFO) -no-undefined
+ 
+ libhtsjava_la_SOURCES = htsjava.c htsjava.h
+-libhtsjava_la_LIBADD = $(THREADS_LIBS) $(DL_LIBS)
+-libhtsjava_la_LDFLAGS = -version-info $(VERSION_INFO)
++libhtsjava_la_LIBADD = $(THREADS_LIBS) $(DL_LIBS) libhttrack.la
++libhtsjava_la_LDFLAGS = -version-info $(VERSION_INFO) -no-undefined
+ 
+ EXTRA_DIST = httrack.h webhttrack \
+ 		minizip/ChangeLogUnzip \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/httrack-3.42.2/src/htsglobal.h src/httrack-3.42.2/src/htsglobal.h
+--- origsrc/httrack-3.42.2/src/htsglobal.h	2008-03-16 16:26:22.000000000 -0500
++++ src/httrack-3.42.2/src/htsglobal.h	2008-03-20 17:22:19.000000000 -0500
+@@ -209,7 +209,7 @@
+ #define HTS_USESWF 1
+ #endif
+ 
+-#ifdef _WIN32
++#if defined(_WIN32) || defined(__CYGWIN__)
+ #else
+ #define __cdecl
+ #endif
+@@ -370,7 +370,7 @@
+ /* IPV4, IPV6 and various unified structures */
+ #define HTS_MAXADDRLEN 64
+ 
+-#ifdef _WIN32
++#if defined(_WIN32) || defined(__CYGWIN__)
+ #else
+ #define __cdecl 
+ #endif
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/httrack-3.42.2/src/htslib.c src/httrack-3.42.2/src/htslib.c
+--- origsrc/httrack-3.42.2/src/htslib.c	2007-11-16 06:18:51.000000000 -0600
++++ src/httrack-3.42.2/src/htslib.c	2008-03-20 17:22:19.015625000 -0500
+@@ -5164,6 +5164,10 @@
+   static const char *defaultModules[] = { 
+     "htsswf", "htsjava", "httrack-plugin", NULL 
+   };
++#elif defined(__CYGWIN__)
++  static const char *defaultModules[] = { 
++    "cyghtsswf-1.dll", "cyghtsjava-2.dll", "httrack-plugin", NULL 
++  };
+ #else
+   static const char *defaultModules[] = { 
+     "libhtsswf.so.1", "libhtsjava.so.2", "httrack-plugin", NULL 
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/httrack-3.42.2/src/htsmodules.c src/httrack-3.42.2/src/htsmodules.c
+--- origsrc/httrack-3.42.2/src/htsmodules.c	2008-03-16 16:26:22.000000000 -0500
++++ src/httrack-3.42.2/src/htsmodules.c	2008-03-20 17:22:19.031250000 -0500
+@@ -203,6 +203,12 @@
+     sprintf(file, "%s.dll", file_);
+     handle = LoadLibraryA(file);
+   }
++#elif defined(__CYGWIN__)
++  handle = dlopen(file, RTLD_LAZY);
++  if (handle == NULL) {
++    sprintf(file, "cyg%s.dll", file_);
++    handle = dlopen(file, RTLD_LAZY);
++  }
+ #else
+   handle = dlopen(file, RTLD_LAZY);
+   if (handle == NULL) {
+@@ -261,6 +267,15 @@
+       void* handle;
+ #ifdef _WIN32
+       handle = LoadLibraryA((char*)"ssleay32");
++#elif defined(__CYGWIN__)
++      /* We are compatible with 0.9.6/7/8 and potentially above */
++      handle = dlopen("cygssl-0.9.8.dll", RTLD_LAZY);
++      if (handle == NULL) {
++        handle = dlopen("cygssl-0.9.7.dll", RTLD_LAZY);
++      }
++      if (handle == NULL) {
++        handle = dlopen("cygssl-0.9.6.dll", RTLD_LAZY);
++      }
+ #else
+       /* We are compatible with 0.9.6/7/8/8b and potentially above */
+       handle = dlopen("libssl.so.0.9.8b", RTLD_LAZY);  /* added 8b release too (Debarshi Ray) */
