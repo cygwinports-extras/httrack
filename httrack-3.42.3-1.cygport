@@ -1,6 +1,12 @@
 DESCRIPTION="Website archiver and offline browser utility"
 HOMEPAGE="http://www.httrack.com/"
-SRC_URI="http://www.httrack.com/${P%.${PVP[2]}}.tar.gz"
+SRC_URI="http://www.httrack.com/${P%.${PVP[2]}}-${PVP[2]}.tar.gz"
+PATCH_URI="
+	3.42-no-undefined.patch
+	3.42-cdecl.patch
+	3.42-modules.patch
+	3.42-ssl.patch
+"
 
 abi=2
 PKG_NAMES="${PN} lib${PN}${abi} lib${PN}-devel"
@@ -10,7 +16,7 @@ PKG_CONTENTS[0]="--exclude=*.dll --exclude=templates --exclude=libtest
 PKG_CONTENTS[1]="usr/bin/*-${abi}.dll usr/share/${PN}/templates/"
 PKG_CONTENTS[2]="usr/include/ usr/lib/ usr/share/${PN}/libtest/"
 
-CPPFLAGS+=" -Dtimezonevar"
+ACLOCAL_FLAGS="-I m4"
 
 src_compile() {
 	cd ${S}

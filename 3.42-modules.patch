@@ -1,0 +1,28 @@
+--- origsrc/httrack-3.42.2/src/htslib.c	2007-11-16 06:18:51.000000000 -0600
++++ src/httrack-3.42.2/src/htslib.c	2008-03-20 17:22:19.015625000 -0500
+@@ -5164,6 +5164,10 @@
+   static const char *defaultModules[] = { 
+     "htsswf", "htsjava", "httrack-plugin", NULL 
+   };
++#elif defined(__CYGWIN__)
++  static const char *defaultModules[] = { 
++    "cyghtsswf-1.dll", "cyghtsjava-2.dll", "httrack-plugin", NULL 
++  };
+ #else
+   static const char *defaultModules[] = { 
+     "libhtsswf.so.1", "libhtsjava.so.2", "httrack-plugin", NULL 
+--- origsrc/httrack-3.42.2/src/htsmodules.c	2008-03-16 16:26:22.000000000 -0500
++++ src/httrack-3.42.2/src/htsmodules.c	2008-03-20 17:22:19.031250000 -0500
+@@ -203,6 +203,12 @@
+     sprintf(file, "%s.dll", file_);
+     handle = LoadLibraryA(file);
+   }
++#elif defined(__CYGWIN__)
++  handle = dlopen(file, RTLD_LAZY);
++  if (handle == NULL) {
++    sprintf(file, "cyg%s.dll", file_);
++    handle = dlopen(file, RTLD_LAZY);
++  }
+ #else
+   handle = dlopen(file, RTLD_LAZY);
+   if (handle == NULL) {

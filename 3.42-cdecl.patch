@@ -1,0 +1,20 @@
+--- origsrc/httrack-3.42.2/src/htsglobal.h	2008-03-16 16:26:22.000000000 -0500
++++ src/httrack-3.42.2/src/htsglobal.h	2008-03-20 17:22:19.000000000 -0500
+@@ -209,7 +209,7 @@
+ #define HTS_USESWF 1
+ #endif
+ 
+-#ifdef _WIN32
++#if defined(_WIN32) || defined(__CYGWIN__)
+ #else
+ #define __cdecl
+ #endif
+@@ -370,7 +370,7 @@
+ /* IPV4, IPV6 and various unified structures */
+ #define HTS_MAXADDRLEN 64
+ 
+-#ifdef _WIN32
++#if defined(_WIN32) || defined(__CYGWIN__)
+ #else
+ #define __cdecl 
+ #endif
