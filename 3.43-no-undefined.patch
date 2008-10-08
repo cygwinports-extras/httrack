@@ -1,5 +1,5 @@
---- origsrc/httrack-3.42.2/libtest/Makefile.am	2008-03-19 14:07:22.000000000 -0500
-+++ src/httrack-3.42.2/libtest/Makefile.am	2008-03-20 17:22:18.984375000 -0500
+--- origsrc/httrack-3.43.1/libtest/Makefile.am	2008-09-28 12:07:10.000000000 -0500
++++ src/httrack-3.43.1/libtest/Makefile.am	2008-10-08 01:57:45.055393800 -0500
 @@ -18,33 +18,33 @@
  
  # Examples
@@ -54,8 +54,8 @@
 +libsimple_la_LIBADD = $(THREADS_LIBS) $(SOCKET_LIBS) $(top_builddir)/src/libhttrack.la
 +libsimple_la_LDFLAGS = -module -avoid-version -no-undefined
  pkglib_LTLIBRARIES = libbaselinks.la libchangecontent.la libcontentfilter.la libdisplayheader.la libfilename2.la libfilename.la libfilenameiisbug.la liblistlinks.la liblog.la libsimple.la
---- origsrc/httrack-3.42.2/src/Makefile.am	2006-08-14 04:21:51.000000000 -0500
-+++ src/httrack-3.42.2/src/Makefile.am	2008-03-20 17:22:18.984375000 -0500
+--- origsrc/httrack-3.43.1/src/Makefile.am	2008-08-17 03:51:18.000000000 -0500
++++ src/httrack-3.43.1/src/Makefile.am	2008-10-08 01:57:45.071019800 -0500
 @@ -25,8 +25,8 @@
  
  bin_PROGRAMS = proxytrack httrack htsserver
@@ -75,7 +75,7 @@
 +libhttrack_la_LDFLAGS = -version-info $(VERSION_INFO) -no-undefined
  
  libhtsjava_la_SOURCES = htsjava.c htsjava.h
--libhtsjava_la_LIBADD = $(THREADS_LIBS) $(DL_LIBS)
+-libhtsjava_la_LIBADD = $(THREADS_LIBS) $(DL_LIBS) -lhttrack
 -libhtsjava_la_LDFLAGS = -version-info $(VERSION_INFO)
 +libhtsjava_la_LIBADD = $(THREADS_LIBS) $(DL_LIBS) libhttrack.la
 +libhtsjava_la_LDFLAGS = -version-info $(VERSION_INFO) -no-undefined
