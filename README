@@ -7,19 +7,19 @@ files from the server to your computer.
 
 Runtime requirements:
   cygwin-1.5.25-15
-  openssl-0.9.8h-1
+  openssl-0.9.8i-1
   xdg-utils-1.0.2-1
   zlib-1.2.3-2
 
 Build requirements:
 (besides corresponding -devel packages)
-  autoconf2.5-2.61-1
-  automake1.7-1.7.9-3
-  binutils-20080524-2
-  cygport-0.3.13-1
+  autoconf2.5-2.63-1
+  automake1.7-1.7.9-4
+  binutils-20080624-2
+  cygport-0.4.3-1
   gawk-3.1.6-1
   gcc-core-3.4.4-3
-  libtool-2.2.2-2
+  libtool-2.2.6a-1
   make-3.81-1
   sed-4.1.5-2
 
@@ -274,6 +274,12 @@ Files included in the binary packages:
 ------------------
 
 Port Notes:
+
+----- version 3.43.2-1 -----
+Version bump.
+
+----- version 3.43.1-1 -----
+Version bump.
 
 ----- version 3.42.3-1 -----
 Version bump for CVE-2008-3429.

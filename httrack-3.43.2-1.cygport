@@ -8,13 +8,11 @@ PATCH_URI="
 	3.42-ssl.patch
 "
 
-abi=2
-PKG_NAMES="${PN} lib${PN}${abi} lib${PN}-devel"
-PKG_HINTS="bin lib devel"
-PKG_CONTENTS[0]="--exclude=*.dll --exclude=templates --exclude=libtest
+PKG_NAMES="${PN} lib${PN}2 lib${PN}-devel"
+httrack_CONTENTS="--exclude=*.dll --exclude=templates --exclude=libtest
                  usr/bin/ usr/share/"
-PKG_CONTENTS[1]="usr/bin/*-${abi}.dll usr/share/${PN}/templates/"
-PKG_CONTENTS[2]="usr/include/ usr/lib/ usr/share/${PN}/libtest/"
+libhttrack2_CONTENTS="usr/bin/*-2.dll usr/share/${PN}/templates/"
+libhttrack_devel_CONTENTS="usr/include/ usr/lib/ usr/share/${PN}/libtest/"
 
 ACLOCAL_FLAGS="-I m4"
 
