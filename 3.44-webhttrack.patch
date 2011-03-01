@@ -1,0 +1,24 @@
+--- origsrc/httrack-3.44.1/src/webhttrack	2010-11-27 16:03:02.000000000 -0600
++++ src/httrack-3.44.1/src/webhttrack	2011-03-01 03:27:31.088913400 -0600
+@@ -4,10 +4,9 @@
+ # Initializes the htsserver GUI frontend and launch the default browser
+ 
+ BROWSEREXE=
+-SRCHBROWSEREXE="x-www-browser www-browser iceape mozilla firefox icecat iceweasel abrowser firebird galeon konqueror opera netscape"
++SRCHBROWSEREXE="epiphany midori arora rekonq konqueror"
+ if test -n "${BROWSER}"; then
+-# sensible-browser will f up if BROWSER is not set
+-SRCHBROWSEREXE="xdg-open sensible-browser ${SRCHBROWSEREXE}"
++BROWSEREXE="${BROWSER}"
+ fi
+ # Patch for Darwin/Mac by Ross Williams
+ if test "`uname -s`" == "Darwin"; then
+@@ -54,7 +53,7 @@ if ! test -n "${user_name}"; then
+ user_name=`id -un`
+ fi
+ if test -n "${user_name}"; then
+-ps -e -U "$user_name" | grep -E "(iceape|mozilla|netscape|firebird|firefox)" | grep -qv "grep -E"
++procps -e -U "$user_name" | grep -E "(iceape|mozilla|netscape|firebird|firefox|epiphany|midori)" | grep -qv "grep -E"
+ else
+ false
+ fi

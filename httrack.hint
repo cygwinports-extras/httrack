@@ -1,5 +1,5 @@
 category: Web
-requires: libhttrack2 xdg-utils
+requires: libhttrack2 procps
 sdesc: "Website copier and offline browser (clients)"
 ldesc: "HTTrack is a free, easy-to-use offline browser utility. It 
 allows you to download a World Wide Web site from the Internet to a

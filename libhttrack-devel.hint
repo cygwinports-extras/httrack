@@ -1,5 +1,5 @@
 category: Web
-requires: libhttrack2 zlib
+requires: libhttrack2 zlib-devel
 external-source: httrack
 sdesc: "Website copier and offline browser (development and tests)"
 ldesc: "HTTrack is a free, easy-to-use offline browser utility. It 

@@ -1,11 +1,12 @@
 DESCRIPTION="Website archiver and offline browser utility"
 HOMEPAGE="http://www.httrack.com/"
-SRC_URI="http://www.httrack.com/${P%.${PVP[2]}}.tar.gz"
+SRC_URI="http://download.httrack.com/${P}.tar.gz"
 PATCH_URI="
 	3.43-no-undefined.patch
 	3.42-cdecl.patch
 	3.42-modules.patch
 	3.42-ssl.patch
+	3.44-webhttrack.patch
 "
 
 PKG_NAMES="${PN} lib${PN}2 lib${PN}-devel"
@@ -15,6 +16,7 @@ libhttrack2_CONTENTS="usr/bin/*-2.dll usr/share/${PN}/templates/"
 libhttrack_devel_CONTENTS="usr/include/ usr/lib/ usr/share/${PN}/libtest/"
 
 ACLOCAL_FLAGS="-I m4"
+WANT_AUTOMAKE=1.9
 
 src_compile() {
 	cd ${S}
@@ -23,11 +25,4 @@ src_compile() {
 	cd ${B}
 	cygconf --disable-static --with-zlib=/usr
 	cygmake
-}
-
-src_install() {
-	cd ${B}
-	cyginstall
-
-	mv ${D}/usr/share/doc/{${PN},${P}}
 }
