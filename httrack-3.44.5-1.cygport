@@ -26,3 +26,5 @@ src_compile() {
 	cygconf --disable-static --with-zlib=/usr
 	cygmake
 }
+
+KEEP_LA_FILES="none"
