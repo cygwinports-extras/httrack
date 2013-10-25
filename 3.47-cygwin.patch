@@ -18,3 +18,14 @@
  #else
  #define __cdecl 
  #endif
+--- origsrc/httrack-3.47.27/src/mmsrip/mms.h	2013-06-28 12:45:58.000000000 -0500
++++ src/httrack-3.47.27/src/mmsrip/mms.h	2013-10-24 21:17:28.528361300 -0500
+@@ -40,7 +40,7 @@ typedef signed long int ssize_t;
+ #define SHUT_RDWR SD_BOTH
+ #endif
+ 
+-#if defined(__CYGWIN__) || defined(_WIN32)
++#if defined(_WIN32)
+ typedef unsigned char uint8_t;
+ #ifndef __uint32_t_defined
+ #define __uint32_t_defined
