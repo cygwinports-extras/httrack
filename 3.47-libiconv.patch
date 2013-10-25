@@ -1,0 +1,11 @@
+--- origsrc/httrack-3.47.27/configure.ac	2013-09-15 08:34:30.000000000 -0500
++++ src/httrack-3.47.27/configure.ac	2013-10-24 20:46:45.872967400 -0500
+@@ -198,7 +198,7 @@ AC_DEFINE(LIBSOCKET, 1,[Check for libsoc
+ AC_SUBST(SOCKET_LIBS)
+ 
+ ### Check for iconv
+-AC_CHECK_LIB(iconv, iconv, [ICONV_LIBS="-liconv"
++AC_CHECK_LIB(iconv, libiconv, [ICONV_LIBS="-liconv"
+ AC_DEFINE(LIBICONV, 1,[Check for libiconv])], AC_MSG_RESULT([not necessary]))
+ AC_SUBST(ICONV_LIBS)
+ 

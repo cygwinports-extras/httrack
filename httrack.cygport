@@ -1,0 +1,43 @@
+NAME="httrack"
+VERSION=3.47.27
+RELEASE=1
+CATEGORY="Web"
+SUMMARY="Website copier and offline browser"
+DESCRIPTION="HTTrack is a free, easy-to-use offline browser utility. It allows
+you to download a World Wide Web site from the Internet to a local directory,
+building recursively all directories, getting HTML, images, and other files
+from the server to your computer."
+HOMEPAGE="http://www.httrack.com/"
+SRC_URI="http://download.httrack.com/${NAME}-${VERSION}.tar.gz"
+PATCH_URI="
+	3.47-no-undefined.patch
+	3.42-cdecl.patch
+	3.42-modules.patch
+	3.44-webhttrack.patch
+	3.47-libiconv.patch
+"
+
+PKG_NAMES="${NAME} lib${NAME}2 lib${NAME}-devel"
+httrack_REQUIRES="procps"
+httrack_CONTENTS="--exclude=*.dll --exclude=templates --exclude=libtest
+                  etc/ usr/bin/ usr/share/"
+libhttrack2_CATEGORY="Libs"
+libhttrack2_CONTENTS="usr/bin/*-2.dll usr/share/${NAME}/templates/"
+libhttrack_devel_CATEGORY="Libs"
+libhttrack_devel_REQUIRES="openssl-devel"
+libhttrack_devel_CONTENTS="usr/include/ usr/lib/lib*"
+# from examples/
+PKG_IGNORE="usr/lib/${NAME}/ usr/share/${NAME}/libtest/"
+
+ACLOCAL_FLAGS="-I m4"
+
+src_compile() {
+	cd ${S}
+	cygautoreconf
+	lndirs
+	cd ${B}
+	cygconf --disable-static --with-zlib=/usr
+	cygmake
+}
+
+KEEP_LA_FILES="none"

@@ -1,8 +1,0 @@
-category: Web
-requires: libopenssl100 zlib0
-external-source: httrack
-sdesc: "Website copier and offline browser (runtime library)"
-ldesc: "HTTrack is a free, easy-to-use offline browser utility. It 
-allows you to download a World Wide Web site from the Internet to a 
-local directory, building recursively all directories, getting HTML, 
-images, and other files from the server to your computer."
